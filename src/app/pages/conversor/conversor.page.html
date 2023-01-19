@@ -1,0 +1,50 @@
+<app-header [pageTitle]="pageTitle" [pageIcon]="pageIcon"></app-header>
+
+
+<ion-content class="ion-padding">
+	<ion-card>
+		<ion-card-header>
+			<ion-card-title>Dolar y Euro Hoy</ion-card-title>
+		</ion-card-header>
+		
+		<ion-list lines="none">
+			<ion-item>
+				<ion-note>
+					<ion-label>
+						<h3>1 {{Dolar?.codigo}} = {{Dolar?.valor}}</h3>
+					</ion-label>
+				</ion-note>
+			</ion-item>
+			<ion-item>
+				<ion-note>
+					<ion-label>
+						<h3>1 {{Euro?.codigo}} = {{Euro?.valor}}</h3>
+					</ion-label>
+				</ion-note>
+			</ion-item>
+		</ion-list>
+		
+		
+		
+		<ion-card-content>
+			<ion-card-title>Convertir pesos Chilenos</ion-card-title>
+		</ion-card-content>
+
+		<ion-card-content>
+			<ion-label position="floating">Pesos Chilenos</ion-label>
+			<ion-input placeholder="0" counter="true" type="number" [(ngModel)]="CLP" maxlength="20"></ion-input>
+		</ion-card-content>
+
+		<ion-card-content>
+			<div class="cajaBotones">
+				<ion-button id="bto_dolar" (click)="ConvertirDolar()">Dolar</ion-button>
+				<ion-button id="bto_euro" (click)="ConvertirEuro()">Euro</ion-button>
+				<ion-button (click)="limpiarCampo()">Limpiar</ion-button>
+			</div>
+			<h5>Conversión:</h5>
+			<ion-item>
+				<ion-label>{{conversion | number:'1.0-2'}}</ion-label>
+			</ion-item>
+		</ion-card-content>
+	</ion-card>
+</ion-content>
